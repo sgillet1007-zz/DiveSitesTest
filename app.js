@@ -11,7 +11,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', indexController.index);
 
-app.get('/getSites', indexController.getSites);
+app.get('/getSites', function(){
+	request('http://www.google.com', function (error, response, body) {
+  			// if (!error && response.statusCode == 200) {
+    			console.log('body') 
+  			// }
+		})
+});
 
 var server = app.listen(4477, function() {
 	console.log('Express server listening on port ' + server.address().port);

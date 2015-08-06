@@ -14,19 +14,24 @@ $(document).on('ready', function(){
         maxZoom: 16
     });
     Esri_NatGeoWorldMap.addTo(map);
+    
     function onMapClick(e) {
         var marker = L.marker([e.latlng.lat,e.latlng.lng],{icon: diveIcon}).addTo(map);
         marker.bindPopup("PopupText").openPopup();
-        $.ajax({
-            method  : 'GET',
-            url     : '/getSites',
-            // data    : {
-            //     value: value
-            // },
-            success : function(data){
-                console.log(data);
-            } 
-        })
+        // $.ajax({
+        //     method  : 'GET',
+        //     url     : '/getSites',
+        //     // data    : {
+        //     //     value: value
+        //     // },
+        //     // success : function(data){
+        //     //     console.log(data);
+        //     // } 
+        // })
 
     }
+
+    $('.titleclick').on('click',function(){
+
+    })
 });
