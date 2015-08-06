@@ -1,0 +1,12 @@
+body{
+	background-color: #FFFFCC
+}
+
+#leaflet-map {
+		display: block;
+		margin: 0 auto;
+		height: 30em;
+		width: 80em;
+		border: 2px solid black;
+		box-shadow:10px 10px 5px #888888;
+	}
