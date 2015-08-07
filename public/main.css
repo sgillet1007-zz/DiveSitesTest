@@ -1,5 +1,5 @@
 body{
-	background-color: #FFFFCC
+	background-color: #FFFFCC;
 }
 
 #leaflet-map {
@@ -10,3 +10,10 @@ body{
 		border: 2px solid black;
 		box-shadow:10px 10px 5px #888888;
 	}
+#dive-select {
+	display : block;
+	margin: 20px auto;
+	width:50em;
+	height: 800px;
+	border: 2px solid black;
+}

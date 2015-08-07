@@ -5,12 +5,13 @@ var indexController = {
 		res.render('index');
 	},
 	getSites : function(req, res){
-		// res.send('http://api.divesites.com/?mode=sites&lat=47.6031537682643&lng=-122.336164712906&dist=25');
-		// request module in node...
-		request('http://www.google.com', function (error, response, body) {
-  			// if (!error && response.statusCode == 200) {
-    			console.log('body') // Show the HTML for the Google homepage. 
-  			// }
+		var lat = req.query.lat;
+		var lng = req.query.lng;
+
+		request('http://api.divesites.com/?mode=sites&lat='+ lat + '&lng=' + lng +'&dist=10', function (error, response, body) {
+  			if (!error && response.statusCode == 200) {
+    			res.send(body);
+  			}
 		})
 	}
 };
