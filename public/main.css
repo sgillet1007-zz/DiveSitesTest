@@ -11,9 +11,22 @@ body{
 		box-shadow:10px 10px 5px #888888;
 	}
 #dive-select {
-	display : block;
+	display : none;
 	margin: 20px auto;
 	width:50em;
-	height: 800px;
+	min-height: 110px;
 	border: 2px solid black;
+}
+
+.select-dive-item {
+	display:inline-block;
+	margin: 5px;
+	width:300px;
+	height:40px;
+	border: 1px solid black;
+	background-color: darkgrey;
+	color: white;
+	font-weight: bolder;
+	text-align:center;
+	padding:5px;
 }
