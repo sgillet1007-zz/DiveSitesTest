@@ -44,13 +44,18 @@ $(document).on('ready', function(){
 					parsed.sites.forEach(function(i){
 						$('#dive-select').css({'display':'block'});
 						$('#dive-select').append('<div class="select-dive-item" id="'+i.id+'" data-lat="' + i.lat + '"data-lng="'+ i.lng +'"data-name="'+i.name+'">'+i.name+'</div>');
-						// when user selects an element, i.name, i.lat, and i.lng get passed to local variables.
-						// marker is added to map based on element selected.
+						
 					})
 				},
 			});
+		//click handler for dive select 
 		$('#dive-select').on('click','.select-dive-item', function(){
-		   $(this).css({"border":"2px dashed red"}); 
+		   $(this).css({"border":"2px dashed red"});
+		   // $(this).data('name');
+		   // $(this).data('lat');
+		   // $(this).data('lng');
+		   var marker = L.marker([$(this).data('lat'),$(this).data('lng')],{icon: diveIcon}).addTo(map);
+		   marker.bindPopup($(this).data('name')).openPopup();
 		})
 		}  
 	editMode = false;

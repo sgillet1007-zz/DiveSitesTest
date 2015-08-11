@@ -9,7 +9,7 @@ var indexController = {
 		var lng = req.query.lng;
 
 		request('http://api.divesites.com/?mode=sites&lat='+ lat + '&lng=' + lng +'&dist=10', function (error, response, body) {
-  			if (!error && response.statusCode == 200) {
+  			if (!error && response.statusCode == 200 || response.statusCode == 304) {
     			res.send(body);
   			}
 		})
