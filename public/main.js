@@ -23,16 +23,32 @@ $(document).on('ready', function(){
 	
 	Esri_NatGeoWorldMap.addTo(map);
 	// ***********************************************************************************
+	// dive time helper function. inputs start and end time strings. returns a number (minutes the dive lasted).
+    var diveTime = function(timeIn,timeOut){
+        var hoursIn = Number(timeIn.slice(0,2));
+        var minsIn = Number(timeIn.slice(3));
+        var startMins = (hoursIn*60)+minsIn;
+        var hoursOut = Number(timeOut.slice(0,2));
+        var minsOut = Number(timeOut.slice(3));
+        var endMins = (hoursOut*60)+minsOut;
+        var diveMins = endMins - startMins;
+        return diveMins;
+    }
+    // psi consumed helper function. inputs start and end psi strings. returns a number (psi used).
+    var psiUsed = function(psiIn, psiOut){
+        var psiIn = Number(psiIn);
+        var psiOut = Number(psiOut);
+        var psiUsed = psiIn - psiOut;
+        return psiUsed;
+    }
+
 	
 	$('.newDive').on('click', function(){
 		editMode = !editMode;
 	});
 
 	function onMapClick(e) {
-		// declare 3 local variables to store name, lat, lng of dive from API.
 		if (editMode === true){
-		// var marker = L.marker([e.latlng.lat,e.latlng.lng],{icon: diveIcon}).addTo(map);
-		// marker.bindPopup("PopupText").openPopup();
 			$.ajax({
 				method  : 'GET',
 				url     : '/getSites',
@@ -48,15 +64,51 @@ $(document).on('ready', function(){
 				},
 			});
 		//click handler for dive select 
-		$('#dive-select').on('click','.select-dive-item', function(){
-		   //outlines selected dive site in red
-		   $(this).css({"border":"2px solid red"});
-		   //adds marker to map at dive location
-		   var marker = L.marker([$(this).data('lat'),$(this).data('lng')],{icon: diveIcon}).addTo(map);
-		   //binds popup to marker
-		   marker.bindPopup($(this).data('name')).openPopup(); //refactor to include diveNo
-		   $('#dive-select').hide(400);
-		   $('#dive-form').toggle(400);
+		$(document).on('click','.select-dive-item', function(){
+			
+			var dive = $(this).data('name');
+			var lat = $(this).data('lat');
+			var lng =$(this).data('lng');
+
+			//outlines selected dive site in red
+			$(this).css({"border":"2px solid red"});
+			//adds marker to map at dive location
+			var marker = L.marker([$(this).data('lat'),$(this).data('lng')],{icon: diveIcon}).addTo(map);
+
+			//binds popup to marker
+			marker.bindPopup($(this).data('name')).openPopup(); //refactor to include diveNo
+			
+			//hide dive sites and show dive form
+			$('#dive-select').toggle(100);
+			$('#dive-form').toggle(300);
+
+			$('#submit-btn').on('click', function(){
+				// var diveNo = ;
+				var date = $('#input-date').val();
+				var diveSite = dive;
+				var diveLat = lat;
+				var diveLng = lng;          
+				var timeIn = $('#input-timeIn').val();
+				var timeOut = $('#input-timeOut').val();
+				var diveTimeMins = diveTime(timeIn,timeOut); //calculated from diveTime helper function
+				var pStart = $('#input-psiStart').val();          
+				var pEnd = $('#input-psiEnd').val();            
+				var pUsed = psiUsed(pStart,pEnd);
+				var weight = $('#input-weight').val();          
+				var suitType = $('#input-suitType').val();        
+				var diveType = $('#input-diveType').val();        
+				var diveConditions = $('#input-diveConditions').val();  
+				var tWater = $('#input-twater').val();          
+				var tAir = $('#input-tAir').val();            
+				var visibility = $('#input-visibility').val();    
+				var diveCompType = $('#input-diveCompType').val();  
+				var diveMaxDepth  = $('#input-diveMaxDepth').val(); 
+				var notes = $('#input-notes').val();
+				// var divePhotos     //link to dive photos stored on AWS S3
+				// var diveLogScan
+				$('#dive-form').toggle(300);
+				console.log('date :' + date +'diveSite :'+ diveSite +'diveLat :'+ diveLat +'diveLng :'+ diveLng + 'diveTimeMins :' + diveTimeMins);
+			})
 		})
 		}  
 	editMode = false;

@@ -8,15 +8,15 @@ block content
 	#dive-form.form-wrapper
 		h3 Fill out dive details
 		form.form-inline
-			.form-group
-				label Dive Site
-				input.form-control#input-location(type="text",placeholder="pull from selected dive")
-			.form-group
-				label Dive Lat.
-				input.form-control#input-lat(type="number",placeholder="pull from selected dive")
-			.form-group
-				label Dive Long.
-				input.form-control#input-lat(type="number",placeholder="pull from selected dive") 
+			//- .form-group
+			//- 	label Dive Site
+			//- 	input.form-control#input-location(type="text",placeholder="pull from selected dive")
+			//- .form-group
+			//- 	label Dive Lat.
+			//- 	input.form-control#input-lat(type="number",placeholder="pull from selected dive")
+			//- .form-group
+			//- 	label Dive Long.
+			//- 	input.form-control#input-lat(type="number",placeholder="pull from selected dive") 
 			.form-group
 				label Date
 				input.form-control#input-date(type="date",placeholder="Date")
@@ -111,24 +111,63 @@ block content
 			.form-group
 				label Water Temp. (F)
 				select.form-control#input-tWater
-					option
+					option 50
+					option 55
+					option 60
+					option 65
+					option 70
+					option 75
+					option 80
+					option 85
+					option 90
+
 			.form-group
 				label Air Temp. (F)
 				select.form-control#input-tAir
-					option
+					option 50
+					option 55
+					option 60
+					option 65
+					option 70
+					option 75
+					option 80
+					option 85
+					option 90
 			.form-group
 				label Visibility (ft.)
 				select.form-control#input-visibility
-					option
+					option 10
+					option 20
+					option 30
+					option 40
+					option 50
+					option 60
+					option 70
+					option 80
+					option 90
+					option 100
+					option 110
+					option 120
 			.form-group
 				label Dive Computer Make/Model
 				input.form-control#input-diveCompType(type="text",placeholder="pull from selected dive")
 			.form-group
 				label Max. Depth
 				select.form-control#input-diveMaxDepth
-					option
+					option 20
+					option 30
+					option 40
+					option 50
+					option 60
+					option 70
+					option 80
+					option 90
+					option 100
+					option 110
+					option 120
 			.form-group
 				label Notes
-				input.form-control#input-notes(rows="2")				
+				input.form-control#input-notes(rows="2")
+			button.btn.btn-danger#submit-btn(type="button") Submit
 
 
