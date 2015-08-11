@@ -40,22 +40,23 @@ $(document).on('ready', function(){
 				success : function(data){
 					var parsed = JSON.parse(data);
 					$('#dive-select').empty();
-					$('#dive-select').prepend('<h3>Pick a Dive Site...</h3>');
+					$('#dive-select').prepend('<h3>Click on dive site...</h3>');
 					parsed.sites.forEach(function(i){
 						$('#dive-select').css({'display':'block'});
-						$('#dive-select').append('<div class="select-dive-item" id="'+i.id+'" data-lat="' + i.lat + '"data-lng="'+ i.lng +'"data-name="'+i.name+'">'+i.name+'</div>');
-						
+						$('#dive-select').append('<div class="select-dive-item" id="'+i.id+'" data-lat="' + i.lat + '"data-lng="'+ i.lng +'"data-name="'+i.name+'">'+i.name+'</div>');	
 					})
 				},
 			});
 		//click handler for dive select 
 		$('#dive-select').on('click','.select-dive-item', function(){
-		   $(this).css({"border":"2px dashed red"});
-		   // $(this).data('name');
-		   // $(this).data('lat');
-		   // $(this).data('lng');
+		   //outlines selected dive site in red
+		   $(this).css({"border":"2px solid red"});
+		   //adds marker to map at dive location
 		   var marker = L.marker([$(this).data('lat'),$(this).data('lng')],{icon: diveIcon}).addTo(map);
-		   marker.bindPopup($(this).data('name')).openPopup();
+		   //binds popup to marker
+		   marker.bindPopup($(this).data('name')).openPopup(); //refactor to include diveNo
+		   $('#dive-select').hide(400);
+		   $('#dive-form').toggle(400);
 		})
 		}  
 	editMode = false;

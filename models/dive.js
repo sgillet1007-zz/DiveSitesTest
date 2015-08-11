@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 
 // Schema structure for our Dive model
 var diveSchema = mongoose.Schema({
-	diver           : {type: mongoose.Schema.ObjectId, ref : 'Profile'}
+	_diver          : {type: mongoose.Schema.ObjectId, ref : 'Profile'}
 	diveNo          : {type : Number},
 	date            : {type : Date},
 	diveSite        : {type : String},
