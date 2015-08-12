@@ -2,19 +2,12 @@ var mongoose = require('mongoose');
 
 // Schema structure for our Dive model
 var diveSchema = mongoose.Schema({
-	_diver          : {type: mongoose.Schema.ObjectId, ref : 'Profile'}
-	diveNo          : {type : Number},
+	_diver          : {type: mongoose.Schema.ObjectId, ref : 'User'},
 	date            : {type : Date},
-	diveSite        : {type : String},
-	diveLat         : {type : Number},
-	diveLng         : {type : Number},
-	cntry           : {type : String},
 	timeIn          : {type : String},
 	timeOut         : {type : String},
-	diveTimeMins    : {type : Number}, //calculated from diveTime helper function
 	pStart          : {type : Number},
 	pEnd            : {type : Number},
-	pUsed		    : {type : Number}, //calculated from psiUsed helper function
 	weight          : {type : Number},
 	suitType        : {type : String},
 	diveType        : {type : String},
@@ -25,9 +18,9 @@ var diveSchema = mongoose.Schema({
 	diveCompType    : {type : String},
 	diveMaxDepth    : {type : Number},
 	notes			: {type : String},
-	divePhotos      : {type : String}, //link to dive photos stored on AWS S3
-	diveLogScan     : {type : String}, //link to to uploaded scanned logbook sheet
-	
+	diveSite        : {type : String},
+	diveLat         : {type : Number},
+	diveLng         : {type : Number},
 });
 
 // This instantiates the collection Dive

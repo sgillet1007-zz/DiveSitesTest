@@ -56,6 +56,7 @@ $(document).on('ready', function(){
 	}
 	//click handler for dive select 
 	$(document).on('click','.select-dive-item', function(){
+		//refactor idea. create one global object, and add 3 properties, instead of 3 seperate global vars
 		currentName = $(this).data('name');
 		currentLat = $(this).data('lat');
 		currentLng = $(this).data('lng');
@@ -74,19 +75,19 @@ $(document).on('ready', function(){
 	// form submit handler
 	$(document).on('submit','.dive-form-data', function(e){
 		e.preventDefault();
-		var formData = [];
-		formData.push($(this).serializeArray());
-		formData[0].push({"name": "diveSite", "value": currentName});
-		formData[0].push({"name": "diveLat", "value": currentLat});
-		formData[0].push({"name": "diveLng", "value": currentLng});
-		console.log(formData); //why do multipe Arrays get console logged here??????
-		console.log("Current Dive:",currentName);
+		var formData = $(this).serializeArray();
+		formData.push({"name": "diveSite", "value": currentName});
+		formData.push({"name": "diveLat", "value": currentLat});
+		formData.push({"name": "diveLng", "value": currentLng});
+		// console.log(formData);
+		// console.log("Current Dive:",currentName);
 		$('#dive-form').hide(300);
-		// $.ajax({
-		// 	method   : 'POST',
-		// 	url      : '/postDive',
-		// 	data     : formData
-		// })
+		
+		$.ajax({
+			method   : 'POST',
+			url      : '/postDive',
+			data     : formData 
 		})
+	})
 
 });
