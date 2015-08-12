@@ -7,16 +7,7 @@ block content
 	#dive-select
 	#dive-form.form-wrapper
 		h3 Fill out dive details
-		form.form-inline
-			//- .form-group
-			//- 	label Dive Site
-			//- 	input.form-control#input-location(type="text",placeholder="pull from selected dive")
-			//- .form-group
-			//- 	label Dive Lat.
-			//- 	input.form-control#input-lat(type="number",placeholder="pull from selected dive")
-			//- .form-group
-			//- 	label Dive Long.
-			//- 	input.form-control#input-lat(type="number",placeholder="pull from selected dive") 
+		form.form-inline.dive-form-data
 			.form-group
 				label Date
 				input.form-control#input-date(type="date",placeholder="Date")
@@ -168,6 +159,6 @@ block content
 			.form-group
 				label Notes
 				input.form-control#input-notes(rows="2")
-			button.btn.btn-danger#submit-btn(type="button") Submit
+			input.btn.btn-default(type="submit", value="Submit")
 
 

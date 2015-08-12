@@ -65,49 +65,32 @@ $(document).on('ready', function(){
 			});
 		//click handler for dive select 
 		$(document).on('click','.select-dive-item', function(){
-			
-			var dive = $(this).data('name');
-			var lat = $(this).data('lat');
-			var lng =$(this).data('lng');
+			// var dive = $(this).data('name');
+			// var lat = $(this).data('lat');
+			// var lng =$(this).data('lng');
 
 			//outlines selected dive site in red
 			$(this).css({"border":"2px solid red"});
+			//hides dive form
+			$('#dive-select').hide(100);
+			//show dive form
+			$('#dive-form').show(300);
+			
 			//adds marker to map at dive location
 			var marker = L.marker([$(this).data('lat'),$(this).data('lng')],{icon: diveIcon}).addTo(map);
-
 			//binds popup to marker
 			marker.bindPopup($(this).data('name')).openPopup(); //refactor to include diveNo
-			
-			//hide dive sites and show dive form
-			$('#dive-select').toggle(100);
-			$('#dive-form').toggle(300);
 
-			$('#submit-btn').on('click', function(){
-				// var diveNo = ;
-				var date = $('#input-date').val();
-				var diveSite = dive;
-				var diveLat = lat;
-				var diveLng = lng;          
-				var timeIn = $('#input-timeIn').val();
-				var timeOut = $('#input-timeOut').val();
-				var diveTimeMins = diveTime(timeIn,timeOut); //calculated from diveTime helper function
-				var pStart = $('#input-psiStart').val();          
-				var pEnd = $('#input-psiEnd').val();            
-				var pUsed = psiUsed(pStart,pEnd);
-				var weight = $('#input-weight').val();          
-				var suitType = $('#input-suitType').val();        
-				var diveType = $('#input-diveType').val();        
-				var diveConditions = $('#input-diveConditions').val();  
-				var tWater = $('#input-twater').val();          
-				var tAir = $('#input-tAir').val();            
-				var visibility = $('#input-visibility').val();    
-				var diveCompType = $('#input-diveCompType').val();  
-				var diveMaxDepth  = $('#input-diveMaxDepth').val(); 
-				var notes = $('#input-notes').val();
-				// var divePhotos     //link to dive photos stored on AWS S3
-				// var diveLogScan
-				$('#dive-form').toggle(300);
-				console.log('date :' + date +'diveSite :'+ diveSite +'diveLat :'+ diveLat +'diveLng :'+ diveLng + 'diveTimeMins :' + diveTimeMins);
+			$('.dive-form-data').on('submit', function(e){
+				e.preventDefault();
+				var formData = $(this).serializeArray();
+				console.log(formData);
+				$('#dive-form').hide(300);
+				$.ajax({
+					method   : 'POST',
+					url      : '/postDive',
+					data     : formData
+				})
 			})
 		})
 		}  
