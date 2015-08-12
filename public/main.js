@@ -28,7 +28,14 @@ $(document).on('ready', function(){
 		editMode = !editMode;
 	});
 
+	var currentName = "";
+	var currentLat = "";
+	var currentLng = "";
+
 	function onMapClick(e) {
+		currentName = "";
+		currentLat = "";
+		currentLng = "";
 		if (editMode === true){
 			$.ajax({
 				method  : 'GET',
@@ -49,9 +56,9 @@ $(document).on('ready', function(){
 	}
 	//click handler for dive select 
 	$(document).on('click','.select-dive-item', function(){
-		// var dive = $(this).data('name');
-		// var lat = $(this).data('lat');
-		// var lng =$(this).data('lng');
+		currentName = $(this).data('name');
+		currentLat = $(this).data('lat');
+		currentLng = $(this).data('lng');
 
 		//outlines selected dive site in red
 		$(this).css({"border":"2px solid red"});
@@ -63,18 +70,23 @@ $(document).on('ready', function(){
 		var marker = L.marker([$(this).data('lat'),$(this).data('lng')],{icon: diveIcon}).addTo(map);
 		//binds popup to marker
 		marker.bindPopup($(this).data('name')).openPopup(); //refactor to include diveNo
-
-		$('.dive-form-data').on('submit', function(e){
-			e.preventDefault();
-			var formData = [];
-			formData.push($(this).serializeArray());
-			console.log(formData); //why do multipe Arrays get console logged here??????
-			$('#dive-form').hide(300);
-			$.ajax({
-				method   : 'POST',
-				url      : '/postDive',
-				data     : formData
-			})
-		})
 	})
+	// form submit handler
+	$(document).on('submit','.dive-form-data', function(e){
+		e.preventDefault();
+		var formData = [];
+		formData.push($(this).serializeArray());
+		formData[0].push({"name": "diveSite", "value": currentName});
+		formData[0].push({"name": "diveLat", "value": currentLat});
+		formData[0].push({"name": "diveLng", "value": currentLng});
+		console.log(formData); //why do multipe Arrays get console logged here??????
+		console.log("Current Dive:",currentName);
+		$('#dive-form').hide(300);
+		// $.ajax({
+		// 	method   : 'POST',
+		// 	url      : '/postDive',
+		// 	data     : formData
+		// })
+		})
+
 });
