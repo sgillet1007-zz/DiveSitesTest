@@ -13,6 +13,8 @@ app.get('/', indexController.index);
 
 app.get('/getSites', indexController.getSites);
 
+app.post('/postDive', indexController.postDive);
+
 var server = app.listen(4321, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });

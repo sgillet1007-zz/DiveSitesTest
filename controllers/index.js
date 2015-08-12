@@ -9,10 +9,14 @@ var indexController = {
 		var lng = req.query.lng;
 
 		request('http://api.divesites.com/?mode=sites&lat='+ lat + '&lng=' + lng +'&dist=10', function (error, response, body) {
-  			if (!error && response.statusCode == 200) {
+  			if (!error && res.statusCode == 200) {
     			res.send(body);
   			}
 		})
+	},
+	postDive : function(req,res){ //THIS ROUTE CONTROLLER NEEDS FIX!!!!
+		res.render('postDiveTest'); //how to I get the postDiveTest view to render????
+		console.log('this is your controller...');
 	}
 };
 

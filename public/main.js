@@ -23,25 +23,6 @@ $(document).on('ready', function(){
 	
 	Esri_NatGeoWorldMap.addTo(map);
 	// ***********************************************************************************
-	// dive time helper function. inputs start and end time strings. returns a number (minutes the dive lasted).
-    var diveTime = function(timeIn,timeOut){
-        var hoursIn = Number(timeIn.slice(0,2));
-        var minsIn = Number(timeIn.slice(3));
-        var startMins = (hoursIn*60)+minsIn;
-        var hoursOut = Number(timeOut.slice(0,2));
-        var minsOut = Number(timeOut.slice(3));
-        var endMins = (hoursOut*60)+minsOut;
-        var diveMins = endMins - startMins;
-        return diveMins;
-    }
-    // psi consumed helper function. inputs start and end psi strings. returns a number (psi used).
-    var psiUsed = function(psiIn, psiOut){
-        var psiIn = Number(psiIn);
-        var psiOut = Number(psiOut);
-        var psiUsed = psiIn - psiOut;
-        return psiUsed;
-    }
-
 	
 	$('.newDive').on('click', function(){
 		editMode = !editMode;
@@ -57,43 +38,43 @@ $(document).on('ready', function(){
 					var parsed = JSON.parse(data);
 					$('#dive-select').empty();
 					$('#dive-select').prepend('<h3>Click on dive site...</h3>');
+					editMode = false;
 					parsed.sites.forEach(function(i){
 						$('#dive-select').css({'display':'block'});
-						$('#dive-select').append('<div class="select-dive-item" id="'+i.id+'" data-lat="' + i.lat + '"data-lng="'+ i.lng +'"data-name="'+i.name+'">'+i.name+'</div>');	
+						$('#dive-select').append('<div class="select-dive-item" id="'+i.id+'" data-lat="' + i.lat + '"data-lng="'+ i.lng +'"data-name="'+i.name+'">'+i.name+'</div>');
 					})
 				},
 			});
-		//click handler for dive select 
-		$(document).on('click','.select-dive-item', function(){
-			// var dive = $(this).data('name');
-			// var lat = $(this).data('lat');
-			// var lng =$(this).data('lng');
+		}  
+	}
+	//click handler for dive select 
+	$(document).on('click','.select-dive-item', function(){
+		// var dive = $(this).data('name');
+		// var lat = $(this).data('lat');
+		// var lng =$(this).data('lng');
 
-			//outlines selected dive site in red
-			$(this).css({"border":"2px solid red"});
-			//hides dive form
-			$('#dive-select').hide(100);
-			//show dive form
-			$('#dive-form').show(300);
-			
-			//adds marker to map at dive location
-			var marker = L.marker([$(this).data('lat'),$(this).data('lng')],{icon: diveIcon}).addTo(map);
-			//binds popup to marker
-			marker.bindPopup($(this).data('name')).openPopup(); //refactor to include diveNo
+		//outlines selected dive site in red
+		$(this).css({"border":"2px solid red"});
+		//hides dive form
+		$('#dive-select').hide(100);
+		//show dive form
+		$('#dive-form').show(300);
+		//adds marker to map at dive location
+		var marker = L.marker([$(this).data('lat'),$(this).data('lng')],{icon: diveIcon}).addTo(map);
+		//binds popup to marker
+		marker.bindPopup($(this).data('name')).openPopup(); //refactor to include diveNo
 
-			$('.dive-form-data').on('submit', function(e){
-				e.preventDefault();
-				var formData = $(this).serializeArray();
-				console.log(formData);
-				$('#dive-form').hide(300);
-				$.ajax({
-					method   : 'POST',
-					url      : '/postDive',
-					data     : formData
-				})
+		$('.dive-form-data').on('submit', function(e){
+			e.preventDefault();
+			var formData = [];
+			formData.push($(this).serializeArray());
+			console.log(formData); //why do multipe Arrays get console logged here??????
+			$('#dive-form').hide(300);
+			$.ajax({
+				method   : 'POST',
+				url      : '/postDive',
+				data     : formData
 			})
 		})
-		}  
-	editMode = false;
-	}
+	})
 });
