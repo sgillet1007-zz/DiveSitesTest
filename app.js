@@ -75,9 +75,24 @@ app.use(passportConfig.ensureAuthenticated);
 
 app.get('/', indexController.index);
 
+// routes for default New Dive Page (index.view)
 app.get('/getSites', indexController.getSites);
-
 app.post('/postDive', indexController.postDive);
+
+// routes for Dive Map Page
+app.get('/getDiveLocs', indexController.getDiveLocs);
+
+// //route for Log Book Page
+// app.get('/getDiveLogs', indexController.getDiveLogs);
+// // add route for edit dive
+
+// // route for Statistics Page
+// app.get('/getDiveStats', indexController.getDiveStats);
+
+// // route for Diver Info Page
+// app.get('/getDiverInfo', indexController.getDiverInfo);
+// // add route for edit diver info
+
 
 var server = app.listen(4321, function() {
 	console.log('Express server listening on port ' + server.address().port);

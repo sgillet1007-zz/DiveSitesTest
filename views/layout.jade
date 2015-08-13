@@ -19,20 +19,20 @@ html(lang='en')
 				.title Sidebar
 					ul.nav
 						li
-							a Dive Map
+							a(href="/getDiveLocs").nav-dive-map Dive Map
 						li
-							a Log Book
+							a(href="/getDiveLogs").nav-log-book Log Book
 						li
-							a.active New Dive
+							a(href="/").nav-new-dive.active New Dive
 						li
-							a Statistics
+							a(href="/getDiveStats").nav-stats Statistics
 						li
-							a Diver Info
+							a(href="/getDiverInfo").nav-diver-info Diver Info
 						li
-							a Logout
+							a.nav-logout Logout
 			.content.isOpen
 				a.button
-				h1 Flexbox Off Canvas Menu
+				h1 FREE SCUBA LOGBOOK
 				h2 Lightweight, simple, easy to use
 				block content
 		

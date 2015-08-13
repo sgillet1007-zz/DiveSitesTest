@@ -60,6 +60,11 @@ var indexController = {
 				res.redirect('/');
 			}
 		})
+	},
+
+	getDiveLocs : function(req, res){
+		console.log('hello world  ',res);
+		res.render('dive-map.jade',{title: "dive map"});
 	}
 };
 
