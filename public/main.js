@@ -24,6 +24,11 @@ $(document).on('ready', function(){
 	Esri_NatGeoWorldMap.addTo(map);
 	// ***********************************************************************************
 	
+	//Nav bar toggle
+	$('.button').on('click', function() {
+    	$('.content').toggleClass('isOpen');
+  	});
+	
 	$('.newDive').on('click', function(){
 		editMode = !editMode;
 	});

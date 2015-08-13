@@ -6,13 +6,33 @@ html(lang='en')
 		
 		link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css")
 		link(rel="stylesheet", type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+		link(rel="stylesheet" href="mainNav.css")
 		link(rel="stylesheet", href="leaflet.css")
 		link(rel="stylesheet" href="main.css")
 
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js")
 		script(src="/javascripts/leaflet.js")
 		script(src="main.js")
-
 	body
-		block content
+		.wrapper
+			.sidebar
+				.title Sidebar
+					ul.nav
+						li
+							a Dive Map
+						li
+							a Log Book
+						li
+							a.active New Dive
+						li
+							a Statistics
+						li
+							a Diver Info
+						li
+							a Logout
+			.content.isOpen
+				a.button
+				h1 Flexbox Off Canvas Menu
+				h2 Lightweight, simple, easy to use
+				block content
 		
