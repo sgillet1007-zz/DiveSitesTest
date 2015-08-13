@@ -94,7 +94,6 @@ app.get('/DiverInfo', indexController.DiverInfo);
 
 app.get('/Logout', indexController.Logout);
 
-
 var server = app.listen(4321, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });

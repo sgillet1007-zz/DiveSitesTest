@@ -82,7 +82,8 @@ var indexController = {
 		// Dive.find({_diver: req.user._id},function(err, data){
 		// 	res.send(data);
 		// })
-		res.render('statistics',{title:"Statistics"});
+		// **calculate stats values here and save to variables
+		res.render('stats',{title:"Statistics"});//pass calculated values to the outpu object
 	},
 
 	DiverInfo : function(req, res){

@@ -3,7 +3,6 @@ $(document).on('ready', function(){
 	$('.button').on('click', function() {
     	$('.content').toggleClass('isOpen');
   	});
-
 	// $.ajax({
 	// 	method    : 'GET',
 	// 	url       : '/getDives',
