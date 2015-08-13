@@ -78,20 +78,21 @@ app.get('/', indexController.index);
 // routes for default New Dive Page (index.view)
 app.get('/getSites', indexController.getSites);
 app.post('/postDive', indexController.postDive);
+app.get('/getDives', indexController.getDives);
 
 // routes for Dive Map Page
-app.get('/getDiveLocs', indexController.getDiveLocs);
+app.get('/DiveMap', indexController.DiveMap);
 
-// //route for Log Book Page
-// app.get('/getDiveLogs', indexController.getDiveLogs);
-// // add route for edit dive
+//route for Log Book Page
+app.get('/Logbook', indexController.Logbook);
 
-// // route for Statistics Page
-// app.get('/getDiveStats', indexController.getDiveStats);
+// route for Statistics Page
+app.get('/Stats', indexController.Stats);
 
-// // route for Diver Info Page
-// app.get('/getDiverInfo', indexController.getDiverInfo);
-// // add route for edit diver info
+// route for Diver Info Page
+app.get('/DiverInfo', indexController.DiverInfo);
+
+app.get('/Logout', indexController.Logout);
 
 
 var server = app.listen(4321, function() {

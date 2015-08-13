@@ -62,10 +62,40 @@ var indexController = {
 		})
 	},
 
-	getDiveLocs : function(req, res){
-		console.log('hello world  ',res);
-		res.render('dive-map.jade',{title: "dive map"});
-	}
+	DiveMap : function(req, res){
+		// console.log('hello world  ',res);
+		res.render('dive-map',{title: "dive map"});
+	},
+
+	getDives : function(req, res){
+		Dive.find({_diver: req.user._id},function(err, data){
+			res.send(data);
+		})
+	},
+	Logbook : function(req, res){
+		// Dive.find({_diver: req.user._id},function(err, data){
+		// 	res.send(data);
+		// })
+		res.render('log-book',{title:"Log Book"});
+	},
+	Stats : function(req, res){
+		// Dive.find({_diver: req.user._id},function(err, data){
+		// 	res.send(data);
+		// })
+		res.render('statistics',{title:"Statistics"});
+	},
+
+	DiverInfo : function(req, res){
+		// Dive.find({_diver: req.user._id},function(err, data){
+		// 	res.send(data);
+		// })
+		res.render('diver-info',{title:"Diver Info"});
+	},
+
+	Logout : function(req, res){
+		req.logout();
+		res.redirect('/');
+	}	
 };
 
 module.exports = indexController;

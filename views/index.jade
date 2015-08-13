@@ -1,6 +1,7 @@
 extends layout
 
 block content
+	script(src="main.js")
 	button(class="btn btn-default newDive", type="submit") Add Dive To Map
 	#leaflet-map
 	#dive-select
@@ -159,5 +160,6 @@ block content
 				label Notes
 				input.form-control(name="notes",rows="2")
 			input.btn.btn-default(type="submit", value="Submit")
+		
 
 

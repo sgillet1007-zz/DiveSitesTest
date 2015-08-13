@@ -12,27 +12,28 @@ html(lang='en')
 
 		script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js")
 		script(src="/javascripts/leaflet.js")
-		script(src="main.js")
+		
 	body
 		.wrapper
 			.sidebar
 				.title Sidebar
 					ul.nav
 						li
-							a(href="/getDiveLocs").nav-dive-map Dive Map
+							a(href="/DiveMap").nav-dive-map Dive Map
 						li
-							a(href="/getDiveLogs").nav-log-book Log Book
+							a(href="/Logbook").nav-log-book Log Book
 						li
-							a(href="/").nav-new-dive.active New Dive
+							a(href="/").nav-new-dive New Dive
 						li
-							a(href="/getDiveStats").nav-stats Statistics
+							a(href="/DiveStats").nav-stats Statistics
 						li
-							a(href="/getDiverInfo").nav-diver-info Diver Info
+							a(href="/DiverInfo").nav-diver-info Diver Info
 						li
-							a.nav-logout Logout
+							a(href="/Logout").nav-logout Logout
 			.content.isOpen
 				a.button
 				h1 FREE SCUBA LOGBOOK
 				h2 Lightweight, simple, easy to use
 				block content
+		block scripts
 		

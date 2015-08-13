@@ -80,7 +80,7 @@ $(document).on('ready', function(){
 		var marker = L.marker([$(this).data('lat'),$(this).data('lng')],{icon: diveIcon}).addTo(map);
 		//binds popup to marker
 		marker.bindPopup($(this).data('name')).openPopup(); //refactor to include diveNo
-	})
+	});
 	// form submit handler
 	$(document).on('submit','.dive-form-data', function(e){
 		e.preventDefault();
@@ -98,5 +98,4 @@ $(document).on('ready', function(){
 			data     : formData 
 		})
 	})
-
 });
