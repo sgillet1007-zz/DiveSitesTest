@@ -12,6 +12,7 @@ $(document).on('ready', function(){
 			var mapDives = L.map('leaflet-map').setView([18,-69],4);
 			var editMode = false;
 			
+			
 			// mapDives.on('click', onMapClick);
 
 			var Esri_NatGeoWorldMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
