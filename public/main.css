@@ -1,3 +1,7 @@
+*{
+	box-sizing:border-box;
+}
+/************************Map Styles***************************************/
 #leaflet-map {
 		display: block;
 		margin: 0 auto;
@@ -6,6 +10,7 @@
 		border: 2px solid black;
 		box-shadow:10px 10px 5px #888888;
 	}
+
 #leaflet-map.bigMap{
 		display: block;
 		margin: 0 auto;
@@ -14,7 +19,7 @@
 		border: 2px solid black;
 		box-shadow:10px 10px 5px #888888;
 }
-
+/*************************Index Styles**************************************/
 #dive-select {
 	display : none;
 	margin: 20px auto;
@@ -51,3 +56,36 @@
 	color:white;
 	font-weight: bolder;
 }
+/*************************Logbook Styles**************************************/
+
+#log-book {
+	display : block;
+	margin: 20px auto;
+	width:90em;
+	min-height: 100px;
+	background-color:white;
+	border: 2px solid black;
+}
+.log-record-header {
+	margin: 5px auto;
+	border: 2px solid darkblue;
+	width:65em;
+	height:30px;
+	display:block;
+	color:darkblue;
+	background-color:lightblue;
+	border-radius:5px;
+}
+.log-record-details {
+	width:60em;
+	height:140px;
+	border:1px solid grey;
+	display:none;
+	margin: 0px auto;
+	background-color:white;
+}
+.bloghead {
+	margin:2px 0px 0px 5px;
+	font-weight:bolder;
+}
+

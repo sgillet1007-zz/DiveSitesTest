@@ -74,9 +74,9 @@ body {
 }
 
 .nav li a:before {
-  font: 14px fontawesome;
+  font: 16px fontawesome;
   position: absolute;
-  top: 14px;
+  top: 30px;
   left: 20px;
 }
 

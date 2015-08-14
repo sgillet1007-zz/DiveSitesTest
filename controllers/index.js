@@ -73,9 +73,6 @@ var indexController = {
 		})
 	},
 	Logbook : function(req, res){
-		// Dive.find({_diver: req.user._id},function(err, data){
-		// 	res.send(data);
-		// })
 		res.render('log-book',{title:"Log Book"});
 	},
 	Stats : function(req, res){

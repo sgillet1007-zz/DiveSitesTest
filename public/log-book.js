@@ -4,40 +4,16 @@ $(document).on('ready', function(){
     	$('.content').toggleClass('isOpen');
   	});
 
-	// $.ajax({
-	// 	method    : 'GET',
-	// 	url       : '/getDives',
-	// 	success	  : function(dives){
-	// 		// console.log(dives);
-	// 		var mapDives = L.map('leaflet-map').setView([18,-69],4);
-	// 		var editMode = false;
-			
-	// 		// mapDives.on('click', onMapClick);
-
-	// 		var Esri_NatGeoWorldMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
-	// 			attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
-	// 			maxZoom: 16
-	// 		});
-
-	// 		var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	// 		attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-	// 		});
-			
-	// 		Esri_NatGeoWorldMap.addTo(mapDives);
-
-	// 		var diveIcon = L.icon({
-	// 			iconUrl: '/images/scubadiving2.png',
-	// 			iconSize:     [17, 26], // size of the icon
-	// 			iconAnchor:   [8, 28], // point of the icon which will correspond to marker's location
-	// 			popupAnchor:  [5, -30] // point from which the popup should open relative to the iconAnchor
-	// 		});
-
-	// 		dives.forEach(function(i){
-	// 			//adds marker to map at dive location
-	// 			var marker = L.marker([i.diveLat,i.diveLng],{icon: diveIcon}).addTo(mapDives);
-	// 			//binds popup to marker
-	// 			marker.bindPopup(i.diveSite).openPopup(); //get data from db
-	// 		})
-	// 	}
-	// })
+	$.ajax({
+		method    : 'GET',
+		url       : '/getDives',
+		success	  : function(dives){
+			dives.forEach(function(i){
+				console.log(i);
+				// $('#log-book').prepend('<h4>' + i.diveSite + '</h4>');
+				$('#log-book').prepend('<div class="log-record"><div class="log-record-header"><div class="bloghead">'+ i.diveSite + ' || ' + i.date +'</div></div><div class="log-record-details"><div class="row"><div class="col-sm-4"></div><div class="col-sm-4"><strong>'+ i.diveSite +'</strong></div><div class="col-sm-4"></div></div><div class="row"><div class="col-sm-3"><strong>&nbsp Time In: </strong>' + i.timeIn + '</div><div class="col-sm-3"><strong> Time Out:  </strong>'+ i.timeOut + '</div><div class="col-sm-6"><strong> Dive Duration (mins): </strong>'+ '**DIVE TIME**' + '</div></div><div class="row"><div class="col-sm-3"><strong>&nbsp Max. Depth:  </strong>'+ i.diveMaxDepth + '</div><div class="col-sm-3"><strong> Visibility (ft): </strong>'+ i.visibility + '</div><div class="col-sm-6"><strong> Water Temp. (F): </strong>'+ i.tWater + '</div></div><div class="row"><div class="col-sm-3"><strong>&nbsp psi Start: </strong>'+ i.pStart + '</div><div class="col-sm-3"><strong> psi End: </strong>'+ i.pEnd + '</div><div class="col-sm-6"><strong> Air Consumption Rate (psi/min): </strong>'+ '**AIR CONS**' + '</div></div><div class="row"><div class="col-sm-3"><strong>&nbsp Dive Type: </strong>'+ i.diveType + '</div><div class="col-sm-3"><strong> Water Type: </strong>'+ '**FRESH/SALT**' + '</div><div class="col-sm-6"><strong> Verification #: </strong>'+ '**VERIFICATION**' + '</div></div><div class="row"><div class="col-sm-12"><strong>&nbsp Notes: </strong>'+ i.notes + '</div></div></div></div>');
+				
+			})
+		}
+	});
 });
