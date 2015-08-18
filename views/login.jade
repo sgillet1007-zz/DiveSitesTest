@@ -5,29 +5,32 @@ html(lang='en')
     title DiveBook
     
     link(rel="stylesheet" href="main.css")
+    link(rel="stylesheet", type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
 
-    //- script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js")
-    //- script(src="/javascripts/leaflet.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js")
+    script(src="login.js")
     
-  body
-    #login-container
-      //- Error comes through via the context passed when calling res.render('login', {...})
-      //- You'll see this in controllers/authentication.js
-      //- If the error exists, we'll display it.
-      if error
-        h3= error
-
-      //- Form for handling existing user logins.
-      h1 Existing Users
+  body(style="background-image: url('../images/login-background.png')")
+    .banner
+      p DiveBook
+    if error
+      h3= error
+    #login-form(style="display:inline-block ; float:none ; margin:0 auto")
+      h1 Log In
       form(action="/auth/login", method="post")
         input(type="text", name="username", placeholder="Username")
+        br
         input(type="password", name="password", placeholder="Password")
+        br
         input(type="submit")
 
-      //- Form for allowing new users to register.
-      h1 Register
+    #register-form(style="display : inline-block")
+      h1 Create New Profile
       form(action="/auth/signup", method="post")
         input(type="text", name="username", placeholder="Username")
+        br 
         input(type="email", name="email", placeholder="Email")
+        br
         input(type="password", name="password", placeholder="Password")
+        br 
         input(type="submit")
