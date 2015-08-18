@@ -21,6 +21,10 @@ var diveSchema = mongoose.Schema({
 	diveSite        : {type : String},
 	diveLat         : {type : Number},
 	diveLng         : {type : Number},
+
+	verifNo		    : {type:String},
+	wType			: {type:String},
+	diveNo 			: {type:Number}
 });
 
 // This instantiates the collection Dive

@@ -1,6 +1,16 @@
 *{
 	box-sizing:border-box;
 }
+/*********************Login Style *************************************8*/
+#login-container {
+	/*display: block;*/
+	position: relative;
+	width:100em;
+	height:700px;
+	background-color: blue;
+	/*background-image: '../images/login-background';*/
+}
+
 /************************Map Styles***************************************/
 #leaflet-map {
 		display: block;

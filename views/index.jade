@@ -94,6 +94,11 @@ block content
 					option shore
 					option liveaboard
 			.form-group
+				label Water Type
+				select.form-control(name="wType")
+					option salt
+					option fresh
+			.form-group
 				label Dive Conditions
 				select.form-control(name="diveConditions")
 					option current
@@ -156,6 +161,9 @@ block content
 					option 100
 					option 110
 					option 120
+			.form-group
+				label Buddy's Cert.#
+				input.form-control(name="verifNo")
 			.form-group
 				label Notes
 				input.form-control(name="notes",rows="2")

@@ -26,6 +26,7 @@ var userSchema = mongoose.Schema({
   _dives     : [{
     type     : mongoose.Schema.ObjectId,
     ref      : 'Dive'}]
+    
 });
 
 /**

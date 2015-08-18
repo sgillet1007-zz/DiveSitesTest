@@ -41,7 +41,11 @@ var indexController = {
 			notes : req.body.notes,
 			diveSite : req.body.diveSite,
 			diveLat : req.body.diveLat,
-			diveLng : req.body.diveLng
+			diveLng : req.body.diveLng,
+
+			diveNo : req.user._dives.length + 1, //***Check length method syntax
+			verifNo : req.body.verifNo, //add input field to view
+			wType   :  req.body.wType,  //add input field to view
 		}
 		//create the Dive
 		var newDive = new Dive(dive);
@@ -63,7 +67,6 @@ var indexController = {
 	},
 
 	DiveMap : function(req, res){
-		// console.log('hello world  ',res);
 		res.render('dive-map',{title: "dive map"});
 	},
 
