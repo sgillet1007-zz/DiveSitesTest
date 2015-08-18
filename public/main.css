@@ -15,10 +15,10 @@
 		display: block;
 		margin: 0 auto;
 		height: 30em;
-		width: 60em;
+		width: 70em;
 		border: 2px solid black;
 		box-shadow:10px 10px 5px #888888;
-	}
+}
 
 #leaflet-map.bigMap{
 		display: block;
@@ -70,7 +70,7 @@
 #log-book {
 	display : block;
 	margin: 20px auto;
-	width:90em;
+	width:70em;
 	min-height: 100px;
 	background-color:white;
 	border: 2px solid black;
@@ -86,8 +86,8 @@
 	border-radius:5px;
 }
 .log-record-details {
-	width:60em;
-	height:140px;
+	width:55em;
+	height:100px;
 	border:1px solid grey;
 	display:none;
 	margin: 0px auto;
@@ -97,4 +97,28 @@
 	margin:2px 0px 0px 5px;
 	font-weight:bolder;
 }
+/*************************Statistics Styles**************************************/
+
+#stats-frame {
+	display : block;
+	margin: 20px auto;
+	width:70em;
+	min-height: 500px;
+	/*background-color:white;*/
+	border: 2px solid black;
+	box-shadow:10px 10px 5px #888888;
+}
+
+.stats-record {
+	margin: 5px auto;
+	border: 2px solid darkblue;
+	width:50em;
+	height:30px;
+	display:block;
+	text-align:center;
+	color:darkblue;
+	background-color:lightblue;
+	border-radius:5px;
+
+
 

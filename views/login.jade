@@ -15,7 +15,7 @@ html(lang='en')
       p DiveBook
     if error
       h3= error
-    #login-form(style="display:inline-block ; float:none ; margin:0 auto")
+    #login-form(style="display:block ; float:none ; margin:0 auto")
       h1 Log In
       form(action="/auth/login", method="post")
         input(type="text", name="username", placeholder="Username")

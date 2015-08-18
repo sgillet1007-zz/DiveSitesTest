@@ -24,7 +24,7 @@ var indexController = {
 		
 		var dive = {
 			_diver : req.user._id,
-			date  : req.body.date,
+			date  : req.body.date.slice(0,10),
 			timeIn  : req.body.timeIn,
 			timeOut : req.body.timeOut,
 			pStart : req.body.pStart,
@@ -43,9 +43,12 @@ var indexController = {
 			diveLat : req.body.diveLat,
 			diveLng : req.body.diveLng,
 
-			diveNo : req.user._dives.length + 1, //***Check length method syntax
-			verifNo : req.body.verifNo, //add input field to view
-			wType   :  req.body.wType,  //add input field to view
+			diveNo : Number((req.user._dives.length)+1),
+			verifNo : req.body.verifNo, 
+			wType   :  req.body.wType,
+			airType : req.body.airType,
+			rating : req.body.rating,
+
 		}
 		//create the Dive
 		var newDive = new Dive(dive);
@@ -65,11 +68,9 @@ var indexController = {
 			}
 		})
 	},
-
 	DiveMap : function(req, res){
 		res.render('dive-map',{title: "dive map"});
 	},
-
 	getDives : function(req, res){
 		Dive.find({_diver: req.user._id},function(err, data){
 			res.send(data);

@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 // Schema structure for our Dive model
 var diveSchema = mongoose.Schema({
 	_diver          : {type: mongoose.Schema.ObjectId, ref : 'User'},
-	date            : {type : Date},
+	date            : {type : String},
 	timeIn          : {type : String},
 	timeOut         : {type : String},
 	pStart          : {type : Number},
@@ -24,7 +24,9 @@ var diveSchema = mongoose.Schema({
 
 	verifNo		    : {type:String},
 	wType			: {type:String},
-	diveNo 			: {type:Number}
+	diveNo 			: {type:Number},
+	rating			: {type:Number},
+	airType			: {type:String},
 });
 
 // This instantiates the collection Dive

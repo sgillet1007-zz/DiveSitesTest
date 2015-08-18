@@ -1,42 +1,44 @@
 $(document).on('ready', function(){
+	var diveTotal = 0;
+	var diveHours = 0;
+	var airConsTotal = 0;
+	var avgAirCons = 0;
+
+	var diveTime = function(timeIn,timeOut){
+        var hoursIn = Number(timeIn.slice(0,2));
+        var minsIn = Number(timeIn.slice(3));
+        var startMins = (hoursIn*60)+minsIn;
+        var hoursOut = Number(timeOut.slice(0,2));
+        var minsOut = Number(timeOut.slice(3));
+        var endMins = (hoursOut*60)+minsOut;
+        var diveMins = endMins - startMins;
+        return diveMins;
+    }
+
+    var psiUsed = function(psiIn, psiOut){
+        var psiIn = Number(psiIn);
+        var psiOut = Number(psiOut);
+        var psiUsed = psiIn - psiOut;
+        return psiUsed;
+    }
+
+    var roundTenths = function(num){
+        var output = Math.round(num*10)/10;
+        return output
+    }
 
 	$('.button').on('click', function() {
     	$('.content').toggleClass('isOpen');
   	});
-	// $.ajax({
-	// 	method    : 'GET',
-	// 	url       : '/getDives',
-	// 	success	  : function(dives){
-	// 		// console.log(dives);
-	// 		var mapDives = L.map('leaflet-map').setView([18,-69],4);
-	// 		var editMode = false;
-			
-	// 		// mapDives.on('click', onMapClick);
 
-	// 		var Esri_NatGeoWorldMap = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
-	// 			attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
-	// 			maxZoom: 16
-	// 		});
-
-	// 		var Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-	// 		attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-	// 		});
-			
-	// 		Esri_NatGeoWorldMap.addTo(mapDives);
-
-	// 		var diveIcon = L.icon({
-	// 			iconUrl: '/images/scubadiving2.png',
-	// 			iconSize:     [17, 26], // size of the icon
-	// 			iconAnchor:   [8, 28], // point of the icon which will correspond to marker's location
-	// 			popupAnchor:  [5, -30] // point from which the popup should open relative to the iconAnchor
-	// 		});
-
-	// 		dives.forEach(function(i){
-	// 			//adds marker to map at dive location
-	// 			var marker = L.marker([i.diveLat,i.diveLng],{icon: diveIcon}).addTo(mapDives);
-	// 			//binds popup to marker
-	// 			marker.bindPopup(i.diveSite).openPopup(); //get data from db
-	// 		})
-	// 	}
-	// })
+	$.ajax({
+		method    : 'GET',
+		url       : '/getDives',
+		success	  : function(dives){
+			dives.forEach(function(i){
+				airConsTotal += roundTenths(psiUsed(i.pStart,i.pEnd)/diveTime(i.timeIn,i.timeOut))
+				console.log(airConsTotal);
+			})
+		},
+	});
 });

@@ -2,7 +2,7 @@ doctype html
 html(lang='en')
 	head
 		meta(charset="utf-8")
-		title Open Water Logbook
+		title DiveBook
 		
 		link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css")
 		link(rel="stylesheet", type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
@@ -26,14 +26,14 @@ html(lang='en')
 							a(href="/").nav-new-dive New Dive
 						li
 							a(href="/Stats").nav-stats Statistics
-						li
-							a(href="/DiverInfo").nav-diver-info Diver Info
+						//- li
+						//- 	a(href="/DiverInfo").nav-diver-info Diver Info
 						li
 							a(href="/Logout").nav-logout Logout
 			.content.isOpen
 				a.button
-				h1 OPEN WATER LOGBOOK
-				h2 Free SCUBA activity log
+				h1 DiveBook
+				//- h2 Free SCUBA activity log
 				block content
 		block scripts
 		
