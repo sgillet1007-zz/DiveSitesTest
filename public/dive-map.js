@@ -24,7 +24,7 @@ $(document).on('ready', function(){
 			attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
 			});
 			
-			Esri_NatGeoWorldMap.addTo(mapDives);
+			Esri_WorldImagery.addTo(mapDives);
 
 			var diveIcon = L.icon({
 				iconUrl: '/images/scubadiving2.png',
