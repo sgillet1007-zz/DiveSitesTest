@@ -37,6 +37,7 @@ $(document).on('ready', function(){
 		method    : 'GET',
 		url       : '/getDives',
 		success	  : function(dives){
+            // $('#log-book').prepend('<div><h1 style="text-align:center"> Log Book </h1></div>');
 			dives.forEach(function(i){
 				console.log(i);
 				// $('#log-book').prepend('<h4>' + i.diveSite + '</h4>');

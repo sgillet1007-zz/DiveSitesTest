@@ -37,7 +37,7 @@ $(document).on('ready', function(){
 				//adds marker to map at dive location
 				var marker = L.marker([i.diveLat,i.diveLng],{icon: diveIcon}).addTo(mapDives);
 				//binds popup to marker
-				marker.bindPopup(i.diveSite).openPopup();
+				marker.bindPopup('Dive #: '+ i.diveNo+ ' <br>'+i.diveSite + ' <br>' + i.date).openPopup();
 			})
 		}
 	})

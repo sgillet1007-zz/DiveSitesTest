@@ -1,15 +1,59 @@
 * {
 	box-sizing:border-box;
 }
-/*********************Login Style *************************************8*/
+
+.inline-block{
+	display:inline-block;
+}
+
+.float-left{
+	float:left;
+	/*vertical-align: middle;*/
+}
+
+.banner-title {
+	vertical-align: middle;
+	text-align: center;
+}
+
+/********************Banner Style *************************************8*/
+#header{
+	width:90%;
+	height: 75px;
+	margin: 10px auto;
+}
+
 .banner{
-	width: 300px;
+	margin: 0 20px;
+	/*padding:10px;*/
+	width: 70%;
 	height:75px;
 	background-color: white;
 	border: 2px solid black;
-	text-align: center;
+	/*text-align: center;*/
 	font-size: 36px;
+	line-height: 75px;
 }
+	.title-wrapper{
+		width:50%;
+		display:inline-block;	
+	}
+		.header {
+			text-align:center;
+		}
+	.image-wrapper{
+		width:25%;
+		display:inline-block;
+	}
+		.diver {
+			float:right;
+			text-align: center;
+		}
+		.dive-flag{
+			float:left;
+			text-align: center;
+		}
+
 /************************Map Styles***************************************/
 #leaflet-map {
 		display: block;
@@ -17,16 +61,16 @@
 		height: 30em;
 		width: 70em;
 		border: 2px solid black;
-		box-shadow:10px 10px 5px #888888;
+		/*box-shadow:10px 10px 5px #888888;*/
 }
 
 #leaflet-map.bigMap{
 		display: block;
 		margin: 0 auto;
 		height: 40em;
-		width: 80em;
+		width: 80%;
 		border: 2px solid black;
-		box-shadow:10px 10px 5px #888888;
+		/*box-shadow:10px 10px 5px #888888;*/
 }
 /*************************Index Styles**************************************/
 #dive-select {
@@ -34,7 +78,7 @@
 	margin: 20px auto;
 	width:50em;
 	min-height: 110px;
-	background-color:white;
+	/*background-color:white;*/
 	border: 2px solid black;
 }
 
@@ -70,13 +114,16 @@
 #log-book {
 	display : block;
 	margin: 20px auto;
+	padding:5px;
 	width:70em;
 	min-height: 100px;
-	background-color:white;
+	background-image:url("./images/water-background.png");
 	border: 2px solid black;
+	/*box-shadow:10px 10px 5px #888888;*/
 }
 .log-record-header {
 	margin: 5px auto;
+	padding: 5px;
 	border: 2px solid darkblue;
 	width:65em;
 	height:30px;
@@ -87,11 +134,12 @@
 }
 .log-record-details {
 	width:55em;
-	height:100px;
+	height:90px;
 	border:1px solid grey;
 	display:none;
 	margin: 0px auto;
 	background-color:white;
+	padding: 5px;
 }
 .bloghead {
 	margin:2px 0px 0px 5px;
@@ -102,23 +150,26 @@
 #stats-frame {
 	display : block;
 	margin: 20px auto;
+	padding:10px;
 	width:70em;
-	min-height: 500px;
-	/*background-color:white;*/
+	min-height: 400px;
+	background-image:url("./images/water-background.png");
 	border: 2px solid black;
 	box-shadow:10px 10px 5px #888888;
 }
 
 .stats-record {
-	margin: 5px auto;
+	margin: 10px auto;
+	padding: 10px;
 	border: 2px solid darkblue;
-	width:50em;
-	height:30px;
+	background-color:lightblue;
+	width:30em;
+	height:50px;
 	display:block;
 	text-align:center;
 	color:darkblue;
-	background-color:lightblue;
 	border-radius:5px;
+	font-size:20px;
 
 
 
