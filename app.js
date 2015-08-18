@@ -4,7 +4,7 @@ var indexController = require('./controllers/index.js');
 var request = require('request');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/userDives');
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/userDives');
 // Express Session allows us to use Cookies to keep track of
 // a user across multiple pages. We also need to be able to load
 // those cookies using the cookie parser
@@ -79,6 +79,7 @@ app.get('/DiverInfo', indexController.DiverInfo);
 
 app.get('/Logout', indexController.Logout);
 
-var server = app.listen(4321, function() {
+var port = process.env.PORT || 4321;
+var server = app.listen(port, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });
