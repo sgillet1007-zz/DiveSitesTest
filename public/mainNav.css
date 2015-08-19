@@ -15,8 +15,8 @@ html, body {
 
 body {
   font: 12px/1 'Montserrat', sans-serif;
-  color: #333;
-  background: #333;
+  color: #071065;
+  background: #0C1CB1;
   overflow-x: hidden;
 }
 
@@ -33,7 +33,7 @@ body {
 .content {
   flex: 1;
   padding: 30px;
-  background: #eee;
+  background: #071065;
   box-shadow: 0 0 5px black;
   transform: translate3d(0, 0, 0);
   transition: transform .3s;
@@ -65,7 +65,7 @@ body {
   /*color: #eee;*/
   color: #FFF7CC;
   border-bottom: 1px solid #222;
-  background: #2a2a2a;
+  background: #071065;
 }
 
 .nav li a {
@@ -120,12 +120,12 @@ body {
 }
 
 .nav li a:hover {
-  background: #444;
+  background: #0C1CB1;
 }
 
 .nav li a.active {
   box-shadow: inset 5px 0 0 #FFF7CC, inset 6px 0 0 #222;
-  background: #444;
+  background: #0C1CB1;
 }
 
 /* Demo Description */
