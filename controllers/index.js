@@ -6,7 +6,7 @@ var User = require('../models/user.js');
 var indexController = {
 	
 	index: function(req, res) {
-		res.render('index');
+		res.render('index',{user:req.user});
 	},
 	
 	getSites : function(req, res){
@@ -69,7 +69,7 @@ var indexController = {
 		})
 	},
 	DiveMap : function(req, res){
-		res.render('dive-map',{title: "dive map"});
+		res.render('dive-map',{user:req.user});
 	},
 	getDives : function(req, res){
 		Dive.find({_diver: req.user._id},function(err, data){
@@ -77,21 +77,21 @@ var indexController = {
 		})
 	},
 	Logbook : function(req, res){
-		res.render('log-book',{title:"Log Book"});
+		res.render('log-book',{user:req.user});
 	},
 	Stats : function(req, res){
 		// Dive.find({_diver: req.user._id},function(err, data){
 		// 	res.send(data);
 		// })
 		// **calculate stats values here and save to variables
-		res.render('stats',{title:"Statistics"});//pass calculated values to the outpu object
+		res.render('stats',{user:req.user});//pass calculated values to the outpu object
 	},
 
 	DiverInfo : function(req, res){
 		// Dive.find({_diver: req.user._id},function(err, data){
 		// 	res.send(data);
 		// })
-		res.render('diver-info',{title:"Diver Info"});
+		res.render('diver-info',{user:req.user});
 	},
 
 	Logout : function(req, res){

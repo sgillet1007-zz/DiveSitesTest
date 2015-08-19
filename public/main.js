@@ -91,9 +91,9 @@ $(document).on('ready', function(){
 		//outlines selected dive site in red
 		$(this).css({"border":"2px solid red"});
 		//hides dive form
-		$('#dive-select').hide(100);
+		$('#dive-select').hide();
 		//show dive form
-		$('#dive-form').show(300);
+		$('#dive-form').show(600);
 		//adds marker to map at dive location
 		var marker = L.marker([$(this).data('lat'),$(this).data('lng')],{icon: diveIcon}).addTo(map);
 		//binds popup to marker
