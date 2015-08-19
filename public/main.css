@@ -15,6 +15,11 @@
 	/*vertical-align: middle;*/
 }
 
+.float-right{
+	float:right;
+	margin: 0px 2px;
+}
+
 .banner-title {
 	vertical-align: middle;
 	text-align: center;
@@ -127,18 +132,19 @@
 }
 .log-record-header {
 	margin: 5px auto;
-	padding: 5px;
+	/*padding: 5px;*/
 	border: 2px solid darkblue;
-	width:65em;
-	height:30px;
+	width:75%;
+	height:50px;
 	display:block;
 	color:darkblue;
 	background-color:lightblue;
 	border-radius:5px;
+	font-size:20px;
 }
 .log-record-details {
-	width:55em;
-	height:90px;
+	width:70%;
+	height:100px;
 	border:1px solid grey;
 	display:none;
 	margin: 0px auto;
@@ -148,6 +154,14 @@
 .bloghead {
 	margin:2px 0px 0px 5px;
 	font-weight:bolder;
+}
+
+.star-container {
+	display:inline-block;
+	float:right;
+	width:200px;
+	height:30px;
+	border:1px dashed red;
 }
 /*************************Statistics Styles**************************************/
 
