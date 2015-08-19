@@ -3,15 +3,8 @@
 	font-family:Montserrat;
 }
 
-.login-background {
-	width:100%;
-	height:100%;
-	border: 2px solid darkblue;
-	margin: 5px;
-}
-
 .content {
-	background-color: rgba(255,254,179,1);
+	background-color: #FFF7CC;
 }
 
 .inline-block{
@@ -32,6 +25,57 @@
 	vertical-align: middle;
 	text-align: center;
 }
+.form-input{
+	margin:5px;
+}
+.form-label{
+	margin:0 0 0 5px;
+}
+
+/**************************Login Styles******************************/
+
+.login-background {
+	width:100vw;
+	height:100vh;
+	border: 2px solid darkblue;
+	background-image: url('../images/login-background.png'); 
+	background-repeat: no-repeat;
+	background-size:cover;
+	/*margin: 5px;*/
+}
+
+.login-title-block {
+	height: 50px;
+	width:100%;
+	/*text-align: center;*/
+	color:white;
+	display:inline-block;
+	margin:225px auto;
+	font-size: 50px;
+}
+
+.login-title{
+	text-align:center;
+}
+
+.login-header {
+	color:white;
+}
+
+.login-container{
+	width:45%;
+	height: 150px;
+	display:inline-block;
+	margin:5px 5px 5px 20px;
+}
+
+.register-container{
+	width:25%;
+	height: 150px;
+	display:inline-block;
+	margin:5px;
+	float:right;
+}
 
 /********************Banner Style *************************************8*/
 #header{
@@ -51,7 +95,7 @@
 .banner{
 	margin: 0 20px;
 	/*padding:10px;*/
-	width: 85%;
+	width: 85vw;
 	height:75px;
 	/*background-color: white;*/
 	background-image:url("./images/water-background.png");
@@ -81,11 +125,17 @@
 		}
 
 /************************Map Styles***************************************/
+#map-container {
+	width: 80vw;
+	min-height:1px;
+	margin: 0 auto;
+}
+
 #leaflet-map {
 		display: block;
 		margin: 0 auto;
-		height: 30em;
-		width: 70em;
+		height: 40vh;
+		width: 100%;
 		border: 2px solid black;
 		/*box-shadow:10px 10px 5px #888888;*/
 }
@@ -101,33 +151,38 @@
 /*************************Index Styles**************************************/
 #dive-select {
 	display : none;
-	margin: 20px auto;
-	width:50em;
+	margin: 10px auto;
+	width:85vw;
 	min-height: 110px;
 	/*background-color:white;*/
-	border: 2px solid black;
+	/*border: 2px solid black;*/
 }
 
 .select-dive-item {
 	display:inline-block;
-	margin: 5px;
-	width:300px;
-	height:40px;
-	border: 1px solid black;
-	background-color: darkgrey;
-	color: white;
-	font-weight: bolder;
+	margin: 3px;
+	width:250px;
+	height:35px;
+	border: 1px solid red;
+	background-color: rgba(255,0,0,0.1);
+	color: red;
+	/*font-weight: bolder;*/
 	text-align:center;
-	padding:5px;
+	font-size:12px;
+	padding:8px;
+}
+
+.select-dive-item:hover {
+	box-shadow:0px 2px 2px #888888;
 }
 
 #dive-form {
 	display : none;
 	margin: 20px auto;
-	width:70em;
+	width:80vw;
 	min-height: 30px;
-	background-color:white;
-	border: 2px solid black;
+	/*background-color:white;*/
+	/*border: 2px solid black;*/
 }
 .button-container {
 	/*display:inline-block;*/
@@ -135,6 +190,20 @@
 	text-align:center;
 	/*float:right;*/
 	/*text-align: center*/
+}
+
+.instruction-text {
+	color:red;
+	/*font-size: 10px;*/
+	/*display:inline-block;
+	margin:0 5px;*/
+}
+
+.instruction-text-sm {
+	color:red;
+	font-size: 10px;
+	display:inline-block;
+	margin:0 5px;
 }
 
 /*.action-btn {

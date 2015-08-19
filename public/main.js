@@ -68,7 +68,7 @@ $(document).on('ready', function(){
 				success : function(data){
 					var parsed = JSON.parse(data);
 					$('#dive-select').empty();
-					$('#dive-select').prepend('<h3>Select dive site...</h3>');
+					$('#dive-select').prepend('<h3 class="instruction-text">What site did you dive?...</h3>');
 					editMode = false;
 					parsed.sites.forEach(function(i){
 						$('#dive-select').css({'display':'block'});

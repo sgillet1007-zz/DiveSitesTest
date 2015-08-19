@@ -63,7 +63,7 @@ body {
   text-transform: uppercase;
   letter-spacing: 7px;
   /*color: #eee;*/
-  color: rgba(255,254,179,1);
+  color: #FFF7CC;
   border-bottom: 1px solid #222;
   background: #2a2a2a;
 }
@@ -74,13 +74,13 @@ body {
   padding: 15px 15px 15px 50px;
   font-size: 12px;
   /*color: #eee;*/
-  color: rgba(255,254,179,1);
+  color: #FFF7CC;
   border-bottom: 1px solid #222;
 }
 
 .nav li a:before {
   font: 16px fontawesome;
-  color: rgba(255,254,179,1);
+  color: #FFF7CC;
   position: absolute;
   top: 30px;
   left: 20px;
@@ -124,7 +124,7 @@ body {
 }
 
 .nav li a.active {
-  box-shadow: inset 5px 0 0 #5b5, inset 6px 0 0 #222;
+  box-shadow: inset 5px 0 0 #FFF7CC, inset 6px 0 0 #222;
   background: #444;
 }
 

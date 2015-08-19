@@ -2,35 +2,43 @@ doctype html
 html(lang='en')
   head
     meta(charset="utf-8")
-    title DiveBook
+    title AquaBook
     
-    link(rel="stylesheet" href="main.css")
+    link(rel="stylesheet", href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css")
+    link(href='http://fonts.googleapis.com/css?family=Montserrat', rel='stylesheet', type='text/css')
     link(rel="stylesheet", type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css")
+    link(rel="stylesheet", href="mainNav.css")
+    link(rel="stylesheet", href="leaflet.css")
+    link(rel="stylesheet", href="/main.css")
+    link(rel="shortcut icon", type="image/x-icon", href="../images/favicon.ico")
+
 
     script(src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js")
+    script(src="/javascripts/leaflet.js")
     script(src="login.js")
     
   body
-    .login-background(style="background-image: url('../images/login-background.png'); background-repeat: no-repeat;")
-      .login-title
+    .login-background
+      .login-title-block
+        p.login-title AQUABOOK
       if error
         h3= error
-      #login-form(style="display:block ; float:none ; margin:0 auto")
-        h1 Log In
+      #login-form.login-container
+        h3.login-header Log In
         form(action="/auth/login", method="post")
-          input(type="text", name="username", placeholder="Username")
+          input.form-input(type="text", name="username", placeholder="Username")
           br
-          input(type="password", name="password", placeholder="Password")
+          input.form-input(type="password", name="password", placeholder="Password")
           br
-          input(type="submit")
+          input.form-input(type="submit")
 
-      #register-form(style="display : inline-block")
-        h1 Create New Profile
+      #register-form.register-container
+        h3.login-header Create New Profile
         form(action="/auth/signup", method="post")
-          input(type="text", name="username", placeholder="Username")
+          input.form-input(type="text", name="username", placeholder="Username")
           br 
-          input(type="email", name="email", placeholder="Email")
+          input.form-input(type="email", name="email", placeholder="Email")
           br
-          input(type="password", name="password", placeholder="Password")
+          input.form-input(type="password", name="password", placeholder="Password")
           br 
-          input(type="submit")
+          input.form-input(type="submit")
