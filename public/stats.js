@@ -37,7 +37,8 @@ $(document).on('ready', function(){
 	$('.button').on('click', function() {
     	$('.content').toggleClass('isOpen');
   	});
-  	$()
+  	$('.nav').children().removeClass('active');
+    $('.nav-stats').addClass('active');
 
 	$.ajax({
 		method    : 'GET',

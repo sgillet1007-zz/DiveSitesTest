@@ -62,7 +62,8 @@ body {
   text-align: center;
   text-transform: uppercase;
   letter-spacing: 7px;
-  color: #eee;
+  /*color: #eee;*/
+  color: rgba(255,254,179,1);
   border-bottom: 1px solid #222;
   background: #2a2a2a;
 }
@@ -72,12 +73,14 @@ body {
   display: block;
   padding: 15px 15px 15px 50px;
   font-size: 12px;
-  color: #eee;
+  /*color: #eee;*/
+  color: rgba(255,254,179,1);
   border-bottom: 1px solid #222;
 }
 
 .nav li a:before {
   font: 16px fontawesome;
+  color: rgba(255,254,179,1);
   position: absolute;
   top: 30px;
   left: 20px;

@@ -5,6 +5,9 @@ $(document).on('ready', function(){
     	$('.content').toggleClass('isOpen');
   	});
 
+  	$('.nav').children().removeClass('active');
+  	$('.nav-new-dive').addClass('active');
+
 //****************************************************************************************
 	var map = L.map('leaflet-map').setView([18,-69],4);
 	var editMode = false;
@@ -40,11 +43,22 @@ $(document).on('ready', function(){
 	var currentName = "";
 	var currentLat = "";
 	var currentLng = "";
+	var searchID = 1;
+	var circleLayer = new L.LayerGroup();
 
 	function onMapClick(e) {
 		currentName = "";
 		currentLat = "";
 		currentLng = "";
+		var searchVar = searchID.toString();
+		searchVar = L.circle([e.latlng.lat, e.latlng.lng], 40233, { 
+				        color: 'red',
+                        fillColor: '#f03',
+                        fillOpacity: 0.3
+                    	});
+		searchVar.addTo(circleLayer);
+		circleLayer.addTo(map);
+		++searchID;
 		if (editMode === true){
 			$.ajax({
 				method  : 'GET',
@@ -53,18 +67,21 @@ $(document).on('ready', function(){
 				success : function(data){
 					var parsed = JSON.parse(data);
 					$('#dive-select').empty();
-					$('#dive-select').prepend('<h3>Click on dive site...</h3>');
+					$('#dive-select').prepend('<h3>Select dive site...</h3>');
 					editMode = false;
 					parsed.sites.forEach(function(i){
 						$('#dive-select').css({'display':'block'});
 						$('#dive-select').append('<div class="select-dive-item" id="'+i.id+'" data-lat="' + i.lat + '"data-lng="'+ i.lng +'"data-name="'+i.name+'">'+i.name+'</div>');
 					})
+				circleLayer.removeLayer(searchVar);	
 				},
 			});
 		}  
 	}
 	//click handler for dive select 
 	$(document).on('click','.select-dive-item', function(){
+		map.removeLayer(circleLayer);
+
 		//refactor idea. create one global object, and add 3 properties, instead of 3 seperate global vars
 		currentName = $(this).data('name');
 		currentLat = $(this).data('lat');
@@ -79,7 +96,7 @@ $(document).on('ready', function(){
 		//adds marker to map at dive location
 		var marker = L.marker([$(this).data('lat'),$(this).data('lng')],{icon: diveIcon}).addTo(map);
 		//binds popup to marker
-		marker.bindPopup($(this).data('name')).openPopup(); //refactor to include diveNo
+		marker.bindPopup('<strong>Selected Site: </strong><br>'+ $(this).data('name')).openPopup();
 	});
 	// form submit handler
 	$(document).on('submit','.dive-form-data', function(e){

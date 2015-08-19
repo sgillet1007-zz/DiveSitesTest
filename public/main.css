@@ -2,6 +2,10 @@
 	box-sizing:border-box;
 }
 
+.content {
+	background-color: rgba(255,254,179,1);
+}
+
 .inline-block{
 	display:inline-block;
 }
@@ -117,8 +121,8 @@
 	padding:5px;
 	width:70em;
 	min-height: 100px;
-	background-image:url("./images/water-background.png");
-	border: 2px solid black;
+	/*background-image:url("./images/water-background.png");*/
+	/*border: 2px solid black;*/
 	/*box-shadow:10px 10px 5px #888888;*/
 }
 .log-record-header {
@@ -153,9 +157,9 @@
 	padding:10px;
 	width:70em;
 	min-height: 400px;
-	background-image:url("./images/water-background.png");
-	border: 2px solid black;
-	box-shadow:10px 10px 5px #888888;
+	/*background-image:url("./images/water-background.png");*/
+	/*border: 2px solid black;*/
+	/*box-shadow:10px 10px 5px #888888;*/
 }
 
 .stats-record {
