@@ -27,17 +27,26 @@
 
 /********************Banner Style *************************************8*/
 #header{
-	width:90%;
+	width:100%;
 	height: 75px;
 	margin: 10px auto;
+}
+
+.hamburger-wrapper {
+	height:75px;
+	width:5%;
+	display:inline-block;
+	float:left;
+	text-align:center;
 }
 
 .banner{
 	margin: 0 20px;
 	/*padding:10px;*/
-	width: 70%;
+	width: 85%;
 	height:75px;
-	background-color: white;
+	/*background-color: white;*/
+	background-image:url("./images/water-background.png");
 	border: 2px solid black;
 	/*text-align: center;*/
 	font-size: 36px;
@@ -112,35 +121,43 @@
 	background-color:white;
 	border: 2px solid black;
 }
+.button-container {
+	/*display:inline-block;*/
+	margin: 5px auto;
+	text-align:center;
+	/*float:right;*/
+	/*text-align: center*/
+}
 
-.action-btn {
+/*.action-btn {
 	background-color:red;
 	color:white;
 	font-weight: bolder;
-}
+}*/
 /*************************Logbook Styles**************************************/
 
 #log-book {
 	display : block;
 	margin: 20px auto;
-	padding:5px;
-	width:70em;
+	/*padding:5px;*/
+	width:70%;
 	min-height: 100px;
 	/*background-image:url("./images/water-background.png");*/
 	/*border: 2px solid black;*/
 	/*box-shadow:10px 10px 5px #888888;*/
 }
 .log-record-header {
-	margin: 5px auto;
-	/*padding: 5px;*/
+	margin: 5px 0px;
+	padding: 9px 5px 5px 5px;
 	border: 2px solid darkblue;
-	width:75%;
+	width:100%;
 	height:50px;
 	display:block;
 	color:darkblue;
 	background-color:lightblue;
 	border-radius:5px;
 	font-size:20px;
+	box-shadow:0px 2px 2px #888888;
 }
 .log-record-details {
 	width:70%;
@@ -161,7 +178,7 @@
 	float:right;
 	width:200px;
 	height:30px;
-	border:1px dashed red;
+	/*border:1px dashed red;*/
 }
 /*************************Statistics Styles**************************************/
 
@@ -181,7 +198,7 @@
 	padding: 10px;
 	border: 2px solid darkblue;
 	background-color:lightblue;
-	width:30em;
+	width:85%;
 	height:50px;
 	display:block;
 	text-align:center;

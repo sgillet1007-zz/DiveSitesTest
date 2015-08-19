@@ -38,6 +38,7 @@ $(document).on('ready', function(){
 	
 	$('.newDive').on('click', function(){
 		editMode = !editMode;
+		// $('.newDive').css('visibility':'hidden');
 	});
 
 	var currentName = "";
@@ -108,6 +109,7 @@ $(document).on('ready', function(){
 		// console.log(formData);
 		// console.log("Current Dive:",currentName);
 		$('#dive-form').hide(300);
+		// $('.newDive').css('visibility':'visible');
 		
 		$.ajax({
 			method   : 'POST',
