@@ -80,9 +80,9 @@
 
 /********************Banner Style *************************************8*/
 #header{
-	width:100vw;
+	width:100%;
 	height: 80px;
-	margin: 10px auto;
+	/*margin: 10px auto;*/
 }
 
 /*.hamburger-wrapper {

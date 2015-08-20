@@ -17,19 +17,19 @@ block content
 				input.form-control.form-input(name="timeOut",type="time")
 			.form-group
 				label.form-label Air Type
-				select.form-control.form-input(name="airType")
-					option air
+				select.form-control.form-input(name="airType", value="air")
+					option(selected="selected") air
 					option nitrox
 					option tri-mix
 			.form-group
 				label.form-label Tank Pressure Start (psi)
-				select.form-control.form-input(name="pStart")
+				select.form-control.form-input(name="pStart", value="3000")
 					option 3500
 					option 3400
 					option 3300
 					option 3200
 					option 3100
-					option 3000
+					option(selected="selected") 3000
 					option 2900
 					option 2800
 					option 2700
@@ -38,10 +38,10 @@ block content
 					
 			.form-group
 				label.form-label Tank Pressure End (psi)
-				select.form-control.form-input(name="pEnd")
+				select.form-control.form-input(name="pEnd", value="300")
 					option 100
 					option 200
-					option 300
+					option(selected="selected") 300
 					option 400
 					option 500
 					option 600
@@ -56,13 +56,13 @@ block content
 					option 1500
 			.form-group
 				label.form-label Weight (lbs.)
-				select.form-control.form-input(name="weight")
+				select.form-control.form-input(name="weight", value="5")
 					option 0
 					option 1
 					option 2
 					option 3
 					option 4
-					option 5
+					option(selected="selected") 5
 					option 6
 					option 7
 					option 8
@@ -81,10 +81,10 @@ block content
 
 			.form-group
 				label.form-label Suit Type
-				select.form-control.form-input(name="suitType")
+				select.form-control.form-input(name="suitType", value="short wetsuit 3mm")
 					option swimsuit
 					option swimsuit w/ shirt
-					option short wetsuit 3mm
+					option(selected="selected") short wetsuit 3mm
 					option short wetsuit 5mm
 					option long wetsuit 3mm
 					option long wetsuit 5mm
@@ -93,48 +93,48 @@ block content
 
 			.form-group
 				label.form-label Dive Type
-				select.form-control.form-input(name="diveType")
-					option boat
+				select.form-control.form-input(name="diveType", value="boat")
+					option(selected="selected") boat
 					option shore
 					option liveaboard
 			.form-group
 				label.form-label Water Type
 				select.form-control.form-input(name="wType")
-					option salt
+					option(selected="selected") salt
 					option fresh
 			.form-group
 				label.form-label Dive Conditions
-				select.form-control.form-input(name="diveConditions")
-					option current
+				select.form-control.form-input(name="diveConditions", value="current")
+					option(selected="selected") current
 					option surge
 					option waves
 			.form-group
 				label.form-label Water Temp. (F)
-				select.form-control.form-input(name="tWater")
+				select.form-control.form-input(name="tWater", value="75")
 					option 50
 					option 55
 					option 60
 					option 65
 					option 70
-					option 75
+					option(selected="selected") 75
 					option 80
 					option 85
 					option 90
 			.form-group
 				label.form-label Air Temp. (F)
-				select.form-control.form-input(name="tAir")
+				select.form-control.form-input(name="tAir", value="80")
 					option 50
 					option 55
 					option 60
 					option 65
 					option 70
 					option 75
-					option 80
+					option(selected="selected") 80
 					option 85
 					option 90
 			.form-group
 				label.form-label Visibility (ft.)
-				select.form-control.form-input(name="visibility")
+				select.form-control.form-input(name="visibility", value="100")
 					option 10
 					option 20
 					option 30
@@ -144,7 +144,7 @@ block content
 					option 70
 					option 80
 					option 90
-					option 100
+					option(selected="selected") 100
 					option 110
 					option 120
 			.form-group
@@ -152,21 +152,21 @@ block content
 				input.form-control.form-input(name="diveCompType",type="text",placeholder="pull from selected dive")
 			.form-group
 				label Max. Depth
-				select.form-control.form-input(name="diveMaxDepth")
+				select.form-control.form-input(name="diveMaxDepth", value="80")
 					option 20
 					option 30
 					option 40
 					option 50
 					option 60
 					option 70
-					option 80
+					option(selected="selected") 80
 					option 90
 					option 100
 					option 110
 					option 120
 			.form-group
 				label.form-label Buddy's Cert.#
-				input.form-control.form-input(name="verifNo")
+				input.form-control.form-input(name="verifNo", value="482774")
 			.form-group
 				label.form-label Notes
 				input.form-control.form-input(name="notes",rows="2")
@@ -181,6 +181,6 @@ block content
 			input.btn.btn-danger.form-input(type="submit", value="Log it !")
 	#leaflet-map
 	#instruction-wrapper
-		p.instruction-text-sm STEP 1 --> Click New Dive button ... STEP 2 --> Zoom in on map near your dive ... STEP 3 --> click on map to search for known dive sites ...	
+		p.instruction-text-sm STEP 1 --> Zoom in on map near your dive ... STEP 2 --> Click 'Dive Site Search' button ... STEP 3 --> Click map in vicinity of your dive ...	
 	.button-container
-		button(class="btn btn-danger newDive", type="submit") New Dive
+		button(class="btn btn-danger newDive", type="submit") Dive Site Search

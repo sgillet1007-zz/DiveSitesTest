@@ -53,6 +53,7 @@ body {
 .button:before {
   content: '\f0c9';
   font: 42px fontawesome;
+  color: #071065;
 }
 
 /* Demo Navigation */
