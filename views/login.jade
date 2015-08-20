@@ -19,26 +19,27 @@ html(lang='en')
     
   body
     .login-background
-      .login-title-block
+      .login-title-block.row
         p.login-title AQUABOOK
+      .row
       if error
         h3= error
-      #login-form.login-container
-        h3.login-header Log In
-        form(action="/auth/login", method="post")
-          input.form-input(type="text", name="username", placeholder="Username")
-          br
-          input.form-input(type="password", name="password", placeholder="Password")
-          br
-          input.form-input(type="submit")
-
-      #register-form.register-container
-        h3.login-header Create New Profile
-        form(action="/auth/signup", method="post")
-          input.form-input(type="text", name="username", placeholder="Username")
-          br 
-          input.form-input(type="email", name="email", placeholder="Email")
-          br
-          input.form-input(type="password", name="password", placeholder="Password")
-          br 
-          input.form-input(type="submit")
+      .row
+        #login-form.col-sm-2.col-sm-offset-3
+          h3.login-header Log In
+          form(action="/auth/login", method="post")
+            input.form-input(type="text", name="username", placeholder="Username")
+            br
+            input.form-input(type="password", name="password", placeholder="Password")
+            br
+            input.form-input(type="submit")
+        #register-form.col-sm-2.col-sm-offset-2
+          h3.login-header Create New Profile
+          form(action="/auth/signup", method="post")
+            input.form-input(type="text", name="username", placeholder="Username")
+            br 
+            input.form-input(type="email", name="email", placeholder="Email")
+            br
+            input.form-input(type="password", name="password", placeholder="Password")
+            br 
+            input.form-input(type="submit")
