@@ -137,17 +137,17 @@
 		}
 
 /************************Map Styles***************************************/
-#map-container {
+/*#map-container {
 	width: 80vw;
 	min-height:1px;
 	margin: 0 auto;
-}
+}*/
 
 #leaflet-map {
 		display: block;
 		margin: 0 auto;
 		height: 40vh;
-		width: 100%;
+		width: 80%;
 		border: 2px solid #071065;
 		/*box-shadow:10px 10px 5px #888888;*/
 }
@@ -211,11 +211,20 @@
 	margin:0 5px;*/
 }
 
+#instruction-wrapper {
+		display: block;
+		margin: 0 auto;
+		height: 15px;
+		width: 80%;
+		/*border: 2px solid #071065;*/
+		/*box-shadow:10px 10px 5px #888888;*/
+}
+
 .instruction-text-sm {
 	color:red;
 	font-size: 10px;
 	display:inline-block;
-	margin:0 5px;
+	/*margin:0 auto;*/
 }
 
 /*.action-btn {
