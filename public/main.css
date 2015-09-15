@@ -146,7 +146,7 @@
 #leaflet-map {
 		display: block;
 		margin: 0 auto;
-		height: 40vh;
+		height: 45em;
 		width: 80%;
 		border: 2px solid #071065;
 		/*box-shadow:10px 10px 5px #888888;*/
@@ -155,7 +155,7 @@
 #leaflet-map.bigMap{
 		display: block;
 		margin: 0 auto;
-		height: 40em;
+		height: 45em;
 		width: 80%;
 		border: 2px solid #071065;
 		/*box-shadow:10px 10px 5px #888888;*/

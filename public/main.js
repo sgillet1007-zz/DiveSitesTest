@@ -73,9 +73,9 @@ $(document).on('ready', function(){
 					parsed.sites.forEach(function(i){
 						$('#dive-select').css({'display':'block'});
 						$('#dive-select').append('<div class="select-dive-item" id="'+i.id+'" data-lat="' + i.lat + '"data-lng="'+ i.lng +'"data-name="'+i.name+'">'+i.name+'</div>');
-					})
-				circleLayer.removeLayer(searchVar);	
-				},
+					});
+					circleLayer.removeLayer(searchVar);
+				}
 			});
 		}  
 	}
